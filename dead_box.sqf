@@ -25,12 +25,12 @@ _string = [ _string , '[', ""] call CBA_fnc_replace;
 _string = [ _string , ']', ""] call CBA_fnc_replace;   
 _string = [_string, ","] call CBA_fnc_split;   
  
-_currentMag = primaryWeapon player;   
-if ( (isClass (configFile >> "CfgWeapons" >> _currentMag))  ) then    
-  {
-	_box addWeaponCargoGlobal  [ _currentMag , 1 ] ; 
-	player removeWeaponGlobal _currentMag; 
-  };  
+//_currentMag = primaryWeapon player;   
+//if ( (isClass (configFile >> "CfgWeapons" >> _currentMag))  ) then    
+//  {
+//	_box addWeaponCargoGlobal  [ _currentMag , 1 ] ; 
+//	player removeWeaponGlobal _currentMag; 
+//  };  
      
 {    
  if ( (isClass (configFile >> "CfgWeapons" >> _x))  )then    
