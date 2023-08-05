@@ -14,9 +14,14 @@ if ( (isClass (configFile >> "CfgMagazines" >> _x))  )then   {
 
 //_currentMag = backpack player; 
 //_box addBackpackCargoGlobal [_currentMag , 1];  
- _currentMag = backpack player;
-if (!isNull _currentMag) then { _box addBackpackCargoGlobal [_currentMag , 1];  }; 
 
+
+_currentMag = backpack player; 
+if ( (isClass (configFile >> "CfgVehicles" >> _currentMag))  )then    
+	{ 
+		_box addBackpackCargoGlobal [_currentMag , 1];
+		player removeItem _x;
+	};   
 
 private _inventory = getUnitLoadout _player;   
 private  _string =  str _inventory;   
