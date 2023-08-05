@@ -12,9 +12,12 @@ if ( (isClass (configFile >> "CfgMagazines" >> _x))  )then   {
 	};    
 } forEach _itemsPlayer;
 
-_currentMag = backpack player; 
-_box addBackpackCargoGlobal [_currentMag , 1];  
-  
+//_currentMag = backpack player; 
+//_box addBackpackCargoGlobal [_currentMag , 1];  
+ _currentMag = backpack player;
+if (!isNull _currentMag) then { _box addBackpackCargoGlobal [_currentMag , 1];  }; 
+
+
 private _inventory = getUnitLoadout _player;   
 private  _string =  str _inventory;   
 _string = [ _string , '"', ""] call CBA_fnc_replace;   
