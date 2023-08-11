@@ -113,3 +113,5 @@ _object = nearestObjects [player,[], 1 ];
 	};
 	  
 }forEach _object;   
+["SuccessTitleAndText", [ "Вы сыграли в ящик, заберите вещи с ящика" ]] call ExileClient_gui_toaster_addTemplateToast; 
+"SmokeShellBlue" createVehicle _position;  
