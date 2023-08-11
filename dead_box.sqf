@@ -110,6 +110,7 @@ _object = nearestObjects [player,[], 1 ];
 		_www =  weaponsItemsCargo _x;
 		_www = _www select 0; 
         _box addWeaponWithAttachmentsCargo [_www ,1];
+	 deleteVehicle _x; 
 	};
 	  
 }forEach _object;   
