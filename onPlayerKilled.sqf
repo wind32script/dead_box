@@ -1,7 +1,9 @@
 ["SuccessTitleAndText", [ "Вы умерли."]] call ExileClient_gui_toaster_addTemplateToast;
+[player, [missionNamespace, "TAG_SavedInventory"]] call BIS_fnc_saveInventory;
+
+
 private _player = player;       
-private _position = getPos _player;      
-private _box= cursorTarget;   
+private _position = getPos _player;       
 private _box = "Exile_Container_SupplyBox" createVehicle _position;    
 _fnc_add_cargo = {     
 params ["_item","_i","_unit", "_box"];   
