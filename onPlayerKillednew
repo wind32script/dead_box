@@ -1,0 +1,31 @@
+params  [ "_oldUnit" , "_killer" , "_respawn" , "_respawnDelay" ] ;
+
+_oldUnit setVariable ["MyLoadout", getUnitLoadout _oldUnit];
+box_grave = _oldUnit;
+
+
+
+
+_actionId = _oldUnit addAction ["Переодеться(текущий инвентарь будет очищен)", {
+    params ["_target", "_caller"];
+	_caller setVariable ["ExileMoney",  ( _target getVariable ["ExileMoney", 0] ) +  ( _caller getVariable ["ExileMoney", 0]) , true];
+    _caller setUnitLoadout (_target getVariable "MyLoadout");
+	_target removeAction _actionId;
+	deleteVehicle _target; 
+	
+}];
+
+["SuccessTitleAndText", [ "Вы умерли."]] call ExileClient_gui_toaster_addTemplateToast;
+removeAllWeapons player;
+removeAllItems player;
+removeAllAssignedItems player;
+removeUniform player;
+removeVest player;
+removeBackpack player;
+removeHeadgear player;
+removeGoggles player;
+
+
+private _player = player;       
+private _position = getPos _player;     
+"SmokeShellBlue" createVehicle _position;  
